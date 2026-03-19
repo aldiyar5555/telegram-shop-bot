@@ -1,12 +1,18 @@
+import os
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils import executor
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from dotenv import load_dotenv
 
-API_TOKEN = "YOUR_TOKEN"
-admin_id = 123456789  # Твой телеграм ID
+
+load_dotenv()
+
+
+API_TOKEN = os.getenv("BOT_TOKEN")
+admin_id = int(os.getenv("ADMIN_ID"))
 
 bot = Bot(token=API_TOKEN)
 storage = MemoryStorage()
